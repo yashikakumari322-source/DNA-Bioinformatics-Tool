@@ -1,2 +1,9 @@
-_pycache_
-dna_sequence.txt
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+venv/
+*.txt
