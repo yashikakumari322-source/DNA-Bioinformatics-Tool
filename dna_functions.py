@@ -43,22 +43,29 @@ def complement(dna_sequence):
 #transcribe a DNA sequence to mRNA
 def transcribe(dna_sequence):
     transcription = {
-        "A": "U",
-        "T": "A",
-        "C": "G",
-        "G": "C"
+        "A": "A",
+        "T": "U",
+        "C": "C",
+        "G": "G"
     }
     return ''.join(transcription[nucleotide] for nucleotide in dna_sequence)
 
 #actual translation of mRNA to protein sequence code
 def translate(mrna_sequence):
+    start = mrna_sequence.find("AUG")
+    if start ==-1:
+        return "start codon not found"
+    
     protein_sequence = []
-    for i in range(0, len(mrna_sequence), 3):
+    for i in range(start, len(mrna_sequence) - 2 , 3):
         codon = mrna_sequence[i:i+3]
-        if len(codon) == 3:
-            amino_acid = codon_table.get(codon, "")
-            if amino_acid == "stop":
-                break
-            protein_sequence.append(amino_acid)
-    return '-'.join(protein_sequence)
+        if codon in ["UAA", "UAG", "UGA"]:
+            break
+        amino_acid = codon_table.get(codon, "Unknown")
+        protein_sequence.append(amino_acid)
+    if not protein_sequence:
+         return "No protein coded"
+    
+    return "-".join(protein_sequence)
+     
      
