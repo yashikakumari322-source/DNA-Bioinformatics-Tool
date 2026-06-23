@@ -26,6 +26,7 @@ properties like GC content and nucleotide composition.
 -  Antiparallel Complementary DNA strand
 - DNA - mRNA transcription - protein translation
 - complete codon table
+- identify start/stop codon
 - multiple sequence analyzes
 - save results to .txt file
 

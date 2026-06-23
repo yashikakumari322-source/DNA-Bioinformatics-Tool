@@ -53,9 +53,9 @@ def transcribe(dna_sequence):
 #actual translation of mRNA to protein sequence code
 def translate(mrna_sequence):
     start = mrna_sequence.find("AUG")
+
     if start ==-1:
         return "start codon not found"
-    
     protein_sequence = []
     for i in range(start, len(mrna_sequence) - 2 , 3):
         codon = mrna_sequence[i:i+3]
@@ -64,8 +64,10 @@ def translate(mrna_sequence):
         amino_acid = codon_table.get(codon, "Unknown")
         protein_sequence.append(amino_acid)
     if not protein_sequence:
+
          return "No protein coded"
     
     return "-".join(protein_sequence)
      
+
      
